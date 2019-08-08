@@ -1,9 +1,9 @@
 bl_info = {
     "name" : "Batex",
     "author" : "jayanam",
-    "description" : "Batch export as Fbx",
+    "descrtion" : "Batch export as Fbx",
     "blender" : (2, 80, 0),
-    "version" : (0, 1, 0),
+    "version" : (0, 2 , 1, 0),
     "location" : "Batch Ex panel",
     "warning" : "",
     "category" : "Import-Export"
