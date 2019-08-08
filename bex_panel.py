@@ -23,3 +23,6 @@ class BatEx_PT_Panel(Panel):
 
         row = layout.row()
         row.operator('object.bex_ot_operator', text='Export')
+
+        row = layout.row()
+        row.operator('object.bex_ot_openfolder', text='Open export folder')

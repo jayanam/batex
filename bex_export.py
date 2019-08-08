@@ -44,4 +44,3 @@ class BatEx_Export:
 
       if old_pos is not None:
         set_object_to_loc(obj, old_pos)
-
