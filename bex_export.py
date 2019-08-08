@@ -28,6 +28,10 @@ class BatEx_Export:
       # Center selected object
       old_pos = self.do_center(obj)
 
+      # Select children if exist
+      for child in get_children(obj):
+        child.select_set(state=True)
+
       # Export the selected object as fbx
       # TODO: Expose mode properties
       bpy.ops.export_scene.fbx(check_existing=False,

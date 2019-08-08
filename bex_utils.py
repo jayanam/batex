@@ -8,6 +8,13 @@ def get_object_loc(obj):
 def set_object_to_loc(obj, loc):
   obj.location = loc
 
+def get_children(obj): 
+  children = [] 
+  for ob in bpy.data.objects: 
+      if ob.parent == obj: 
+          children.append(ob) 
+  return children 
+
 def get_cursor_loc(context):
   return context.scene.cursor.location.copy()
 
