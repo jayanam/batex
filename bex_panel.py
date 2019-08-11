@@ -5,7 +5,7 @@ class BatEx_PT_Panel(Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
     bl_label = "Batch Fbx export"
-    bl_category = "Batch Ex"
+    bl_category = "Batex"
     
     def draw(self, context):
         
@@ -20,6 +20,14 @@ class BatEx_PT_Panel(Panel):
 
         row = layout.row()
         row.prop(context.scene, "center_transform", text="Center transform")
+
+        row_smooth = layout.row()
+        col_smooth_lbl = row_smooth.column()
+        col_smooth_lbl.label(text="Smoothing:")
+
+        col_smooth = row_smooth.column()
+        col_smooth.alignment = 'EXPAND'
+        col_smooth.prop(context.scene, "export_smoothing", text="")
 
         row = layout.row()
         row.operator('object.bex_ot_operator', text='Export')

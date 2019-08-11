@@ -3,8 +3,8 @@ bl_info = {
     "author" : "jayanam",
     "descrtion" : "Batch export as Fbx",
     "blender" : (2, 80, 0),
-    "version" : (0, 3 , 0, 0),
-    "location" : "Batch Ex panel",
+    "version" : (0, 3, 1, 1),
+    "location" : "Batex panel",
     "warning" : "",
     "category" : "Import-Export"
 }
@@ -23,6 +23,17 @@ bpy.types.Scene.export_folder = StringProperty(name="Export folder",
 bpy.types.Scene.center_transform = BoolProperty(name="Center transform",
                 default=True,
                 description="Set the pivot point of the object to the center")
+
+bpy.types.Scene.export_smoothing = EnumProperty(
+    name="Smoothing",
+    description="Defines the export smoothing information",
+    items=(
+        ('EDGE', 'Edge', 'Write edge smoothing',0),
+        ('FACE', 'Face', 'Write face smoothing',1),
+        ('OFF', 'Normals Only', 'Write normals only',2)
+        ),
+    default='OFF'
+    )
 
 classes = ( BatEx_PT_Panel, BatEx_OT_Operator, BatEx_OT_OpenFolder )
 

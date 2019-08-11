@@ -39,6 +39,7 @@ class BatEx_Export:
       filter_glob="*.fbx",
       use_selection=True,
       use_armature_deform_only=True,
+      mesh_smooth_type=self.__context.scene.export_smoothing,
       add_leaf_bones=False,
       path_mode='ABSOLUTE')
 
