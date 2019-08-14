@@ -3,7 +3,7 @@ bl_info = {
     "author" : "jayanam",
     "descrtion" : "Batch export as Fbx",
     "blender" : (2, 80, 0),
-    "version" : (0, 3, 1, 1),
+    "version" : (0, 3, 2, 0),
     "location" : "Batex panel",
     "warning" : "",
     "category" : "Import-Export"
@@ -23,6 +23,10 @@ bpy.types.Scene.export_folder = StringProperty(name="Export folder",
 bpy.types.Scene.center_transform = BoolProperty(name="Center transform",
                 default=True,
                 description="Set the pivot point of the object to the center")
+
+bpy.types.Scene.apply_transform = BoolProperty(name="Apply transform",
+                default=True,
+                description="Applies scale and transform (Experimental)")
 
 bpy.types.Scene.export_smoothing = EnumProperty(
     name="Smoothing",

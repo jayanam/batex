@@ -21,6 +21,9 @@ class BatEx_PT_Panel(Panel):
         row = layout.row()
         row.prop(context.scene, "center_transform", text="Center transform")
 
+        row = layout.row()
+        row.prop(context.scene, "apply_transform", text="Apply transform")
+
         row_smooth = layout.row()
         col_smooth_lbl = row_smooth.column()
         col_smooth_lbl.label(text="Smoothing:")

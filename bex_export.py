@@ -7,6 +7,7 @@ class BatEx_Export:
     self.__context = context
     self.__export_folder = context.scene.export_folder
     self.__center_transform = context.scene.center_transform
+    self.__apply_transform = context.scene.apply_transform
     self.__export_objects = context.selected_objects
   
   def do_center(self, obj):
@@ -39,6 +40,7 @@ class BatEx_Export:
       filter_glob="*.fbx",
       use_selection=True,
       use_armature_deform_only=True,
+      bake_space_transform=self.__apply_transform,
       mesh_smooth_type=self.__context.scene.export_smoothing,
       add_leaf_bones=False,
       path_mode='ABSOLUTE')
