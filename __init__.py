@@ -3,7 +3,7 @@ bl_info = {
     "author" : "jayanam",
     "descrtion" : "Batch export as Fbx",
     "blender" : (2, 80, 0),
-    "version" : (0, 3, 2, 0),
+    "version" : (0, 4, 0, 0),
     "location" : "Batex panel",
     "warning" : "",
     "category" : "Import-Export"
@@ -38,6 +38,10 @@ bpy.types.Scene.export_smoothing = EnumProperty(
         ),
     default='OFF'
     )
+
+bpy.types.Scene.one_material_ID = BoolProperty(name="One material ID",
+                default=True,
+                description="Export just the first material ID")
 
 classes = ( BatEx_PT_Panel, BatEx_OT_Operator, BatEx_OT_OpenFolder )
 
