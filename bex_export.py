@@ -22,30 +22,32 @@ class BatEx_Export:
 
     return None
 
-  def remove_and_save_materials(self, obj):
+  def remove_materials(self, obj):
     mat_count = len(obj.data.materials)
 
-    # Save material ids for faces
-    bpy.ops.object.mode_set(mode='EDIT')
+    if mat_count > 1 and self.__one_material_id:
 
-    bm = bmesh.from_edit_mesh(obj.data)
+      # Save material ids for faces
+      bpy.ops.object.mode_set(mode='EDIT')
 
-    for face in bm.faces:
-      self.__mat_faces[face.index] = face.material_index
+      bm = bmesh.from_edit_mesh(obj.data)
 
-    face.material_index = 0
+      for face in bm.faces:
+        self.__mat_faces[face.index] = face.material_index
 
-    bmesh.update_edit_mesh(obj.data)
+      # Save and remove materials except the last one
+      # so that we keep this as material id
+      bpy.ops.object.mode_set(mode='OBJECT')
+      self.__materials.clear()
 
-    # Save and remove materials except the last one
-    # so that we keep this as material id
-    bpy.ops.object.mode_set(mode='OBJECT')
-    self.__materials.clear()
+      for idx in range(mat_count):
+        self.__materials.append(obj.data.materials[0])
+        if idx < mat_count - 1:
+          obj.data.materials.pop(index=0)
 
-    for idx in range(mat_count):
-      self.__materials.append(obj.data.materials[0])
-      if idx < mat_count - 1:
-        mat = obj.data.materials.pop(index=0)
+      return True
+    else:
+      return False
 
   def restore_materials(self, obj):
 
@@ -85,8 +87,8 @@ class BatEx_Export:
       for child in get_children(obj):
         child.select_set(state=True)
 
-      if self.__one_material_id:
-        self.remove_and_save_materials(obj)
+      # Remove materials except the last one
+      materials_removed = self.remove_materials(obj)
 
       # Export the selected object as fbx
       bpy.ops.export_scene.fbx(check_existing=False,
@@ -99,7 +101,7 @@ class BatEx_Export:
       add_leaf_bones=False,
       path_mode='ABSOLUTE')
 
-      if self.__one_material_id:
+      if materials_removed:
         self.restore_materials(obj)
 
       if old_pos is not None:
