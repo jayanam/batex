@@ -2,7 +2,7 @@ import bpy
 
 from bpy.types import Operator
 
-class BatEx_OT_OpenFolder(Operator):
+class BATEX_OT_OpenFolder(Operator):
   
   bl_idname = "object.bex_ot_openfolder"
   bl_label = "Open Export Folder"
