@@ -3,7 +3,7 @@ bl_info = {
     "author" : "jayanam",
     "descrtion" : "Batch export as Fbx",
     "blender" : (2, 80, 0),
-    "version" : (0, 5, 0, 1),
+    "version" : (0, 6, 0, 0),
     "location" : "Batex panel",
     "warning" : "",
     "category" : "Import-Export"
@@ -38,6 +38,10 @@ bpy.types.Scene.export_smoothing = EnumProperty(
         ),
     default='OFF'
     )
+
+bpy.types.Scene.export_animations = BoolProperty(name="Export Rig & Animations",
+                default=False,
+                description="Export rig and animations")
 
 bpy.types.Scene.one_material_ID = BoolProperty(name="One material ID",
                 default=True,

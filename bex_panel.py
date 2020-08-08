@@ -16,7 +16,11 @@ class BATEX_PT_Panel(Panel):
         row.label(text="Export folder:")
 
         row = layout.row()
-        row.prop(context.scene, "export_folder", text="")
+        col = row.column()
+        col.prop(context.scene, "export_folder", text="")
+
+        col = row.column()
+        col.operator('object.bex_ot_openfolder', text='', icon='FILE_TICK')
 
         row = layout.row()
         row.prop(context.scene, "center_transform", text="Center transform")
@@ -36,7 +40,9 @@ class BATEX_PT_Panel(Panel):
         col_smooth.prop(context.scene, "export_smoothing", text="")
 
         row = layout.row()
-        row.operator('object.bex_ot_operator', text='Export')
+        row.prop(context.scene, "export_animations")
 
         row = layout.row()
-        row.operator('object.bex_ot_openfolder', text='Open export folder')
+        row.operator('object.bex_ot_operator', text='Export')
+
+

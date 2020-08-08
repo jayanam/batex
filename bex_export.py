@@ -16,6 +16,7 @@ class BatEx_Export:
     self.__apply_transform = context.scene.apply_transform
     self.__one_material_id = context.scene.one_material_ID
     self.__export_objects = context.selected_objects
+    self.__export_animations = context.scene.export_animations
     self.__mat_faces = {}
     self.__materials = []
   
@@ -28,6 +29,9 @@ class BatEx_Export:
     return None
 
   def remove_materials(self, obj):
+    if obj.type == 'ARMATURE':
+      return False
+
     mat_count = len(obj.data.materials)
 
     if mat_count > 1 and self.__one_material_id:
@@ -95,11 +99,20 @@ class BatEx_Export:
       # Remove materials except the last one
       materials_removed = self.remove_materials(obj)
 
+      ex_object_types = { 'MESH' }
+
+      if(self.__export_animations):
+        ex_object_types.add('ARMATURE')
+
       # Export the selected object as fbx
       bpy.ops.export_scene.fbx(check_existing=False,
       filepath=self.__export_folder + "/" + obj.name + ".fbx",
       filter_glob="*.fbx",
       use_selection=True,
+      object_types=ex_object_types,
+      bake_anim=self.__export_animations,
+       bake_anim_use_all_bones=self.__export_animations,
+      bake_anim_use_all_actions=self.__export_animations,
       use_armature_deform_only=True,
       bake_space_transform=self.__apply_transform,
       mesh_smooth_type=self.__context.scene.export_smoothing,
