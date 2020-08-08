@@ -7,3 +7,4 @@ Export selected objects as fbx in batch operation.
 * Set the smoothing type before exporting (e.g. for low poly objects set it to FACE)
 * Define export folder, which is stored to .blend-file
 * Open export folder with one click
+* Export armatture and animations
