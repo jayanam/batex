@@ -32,6 +32,9 @@ class BatEx_Export:
     if obj.type == 'ARMATURE':
       return False
 
+    if  not hasattr(obj.data, 'materials'):
+      return False
+
     mat_count = len(obj.data.materials)
 
     if mat_count > 1 and self.__one_material_id:
