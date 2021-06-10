@@ -105,7 +105,7 @@ class BatEx_Export:
         ex_object_types.add('ARMATURE')
 
       # Export the selected object as fbx
-      bpy.ops.export_scene.fbx(check_existing=False,
+      bpy.ops.export_scene.obj(check_existing=False,
       filepath=self.__export_folder + "/" + obj.name + ".obj",
       filter_glob="*.obj;*.mtl",
       use_selection=True,
