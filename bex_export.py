@@ -106,7 +106,7 @@ class BatEx_Export:
 
       # Export the selected object as fbx
       bpy.ops.export_scene.fbx(check_existing=False,
-      filepath=self.__export_folder + "/" + obj.name + ".fbx",
+      filepath=self.__export_folder + "/" + obj.name + ".obj",
       filter_glob="*.fbx",
       use_selection=True,
       object_types=ex_object_types,
