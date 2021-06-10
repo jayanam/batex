@@ -109,15 +109,18 @@ class BatEx_Export:
       filepath=self.__export_folder + "/" + obj.name + ".obj",
       filter_glob="*.obj;*.mtl",
       use_selection=True,
-      object_types=ex_object_types,
-      bake_anim=self.__export_animations,
-       bake_anim_use_all_bones=self.__export_animations,
-      bake_anim_use_all_actions=self.__export_animations,
-      use_armature_deform_only=True,
       bake_space_transform=self.__apply_transform,
-      mesh_smooth_type=self.__context.scene.export_smoothing,
-      add_leaf_bones=False,
-      path_mode='ABSOLUTE')
+      path_mode='ABSOLUTE',
+      axis_forward='-Z', 
+      axis_up='Y',  
+      use_animation=False, 
+      use_mesh_modifiers=True, 
+      use_edges=True, 
+      use_smooth_groups=False, 
+      use_smooth_groups_bitflags=False, 
+      use_normals=True, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, 
+      use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, global_scale=1)
+
 
       if materials_removed:
         self.restore_materials(obj)
