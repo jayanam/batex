@@ -109,7 +109,6 @@ class BatEx_Export:
       filepath=self.__export_folder + "/" + obj.name + ".obj",
       filter_glob="*.obj;*.mtl",
       use_selection=True,
-      bake_space_transform=self.__apply_transform,
       path_mode='ABSOLUTE',
       axis_forward='-Z', 
       axis_up='Y',  
