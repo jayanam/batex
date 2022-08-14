@@ -111,13 +111,15 @@ class BatEx_Export:
       use_selection=True,
       object_types=ex_object_types,
       bake_anim=self.__export_animations,
-       bake_anim_use_all_bones=self.__export_animations,
+      bake_anim_use_all_bones=self.__export_animations,
       bake_anim_use_all_actions=self.__export_animations,
       use_armature_deform_only=True,
       bake_space_transform=self.__apply_transform,
       mesh_smooth_type=self.__context.scene.export_smoothing,
       add_leaf_bones=False,
-      path_mode='ABSOLUTE')
+      path_mode='ABSOLUTE',
+      axis_forward=self.__context.scene.axis_forward,
+      axis_up=self.__context.scene.axis_up)
 
       if materials_removed:
         self.restore_materials(obj)

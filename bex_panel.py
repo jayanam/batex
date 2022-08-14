@@ -42,6 +42,25 @@ class BATEX_PT_Panel(Panel):
         row = layout.row()
         row.prop(context.scene, "export_animations")
 
+        box = layout.box()
+        row = box.row()
+        col = row.column(align=True)
+        col.label(text="Forward")
+        col = row.column(align=True)
+        col.scale_x = 1.25
+        col.prop(context.scene, "axis_forward", text="")
+
+        row = box.row()
+        col = row.column(align=True)
+        col.label(text="Up")
+        col = row.column(align=True)
+        col.scale_x = 1.25
+        col.prop(context.scene, "axis_up", text="")
+
+        if context.scene.axis_forward == context.scene.axis_up:
+            row = box.row()
+            row.label(icon="ERROR", text="Forward and Up are equal")
+
         row = layout.row()
         row.operator('object.bex_ot_operator', text='Export')
 

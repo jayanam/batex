@@ -9,7 +9,11 @@ class BATEX_OT_Operator(Operator):
     bl_label = "Batch Export"
     bl_description = "Export selected objects as fbx" 
     bl_options = {'REGISTER'}
-    
+
+    @classmethod
+    def poll(cls, context):
+        return context.scene.axis_forward != context.scene.axis_up
+
     def execute(self, context):
 
         bat_export = BatEx_Export(context)

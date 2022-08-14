@@ -16,7 +16,7 @@ from . bex_panel import *
 from . bex_op import *
 from . bex_folder_op import *
 
-bpy.types.Scene.export_folder = StringProperty(name="Export folder", 
+bpy.types.Scene.export_folder = StringProperty(name="Export folder",
                subtype="DIR_PATH", 
                description="Directory to export the fbx files into")
 
@@ -46,6 +46,33 @@ bpy.types.Scene.export_animations = BoolProperty(name="Export Rig & Animations",
 bpy.types.Scene.one_material_ID = BoolProperty(name="One material ID",
                 default=True,
                 description="Export just one material per object")
+
+
+bpy.types.Scene.axis_forward = EnumProperty(
+    name="Axis Forward",
+    items=(
+        ('X+', 'X', ''),
+        ('Y+', 'Y', ''),
+        ('Z+', 'Z', ''),
+        ('X-', 'X-', ''),
+        ('Y-', 'Y-', ''),
+        ('Z-', 'Z-', ''),
+    ),
+    default='Z-'
+    )
+
+bpy.types.Scene.axis_up = EnumProperty(
+    name="Axis Up",
+    items=(
+        ('X+', 'X', ''),
+        ('Y+', 'Y', ''),
+        ('Z+', 'Z', ''),
+        ('X-', 'X-', ''),
+        ('Y-', 'Y-', ''),
+        ('Z-', 'Z-', ''),
+    ),
+    default='Y+'
+    )
 
 classes = ( BATEX_PT_Panel, BATEX_OT_Operator, BATEX_OT_OpenFolder )
 
