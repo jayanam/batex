@@ -51,27 +51,27 @@ bpy.types.Scene.one_material_ID = BoolProperty(name="One material ID",
 bpy.types.Scene.axis_forward = EnumProperty(
     name="Axis Forward",
     items=(
-        ('X+', 'X', ''),
-        ('Y+', 'Y', ''),
-        ('Z+', 'Z', ''),
-        ('X-', 'X-', ''),
-        ('Y-', 'Y-', ''),
-        ('Z-', 'Z-', ''),
+        ('X', '+X', ''),
+        ('Y', '+Y', ''),
+        ('Z', '+Z', ''),
+        ('-X', '-X', ''),
+        ('-Y', '-Y', ''),
+        ('-Z', '-Z', ''),
     ),
-    default='Z-'
+    default='-Z'
     )
 
 bpy.types.Scene.axis_up = EnumProperty(
     name="Axis Up",
     items=(
-        ('X+', 'X', ''),
-        ('Y+', 'Y', ''),
-        ('Z+', 'Z', ''),
-        ('X-', 'X-', ''),
-        ('Y-', 'Y-', ''),
-        ('Z-', 'Z-', ''),
+        ('X', '+X', ''),
+        ('Y', '+Y', ''),
+        ('Z', '+Z', ''),
+        ('-X', '-X', ''),
+        ('-Y', '-Y', ''),
+        ('-Z', '-Z', ''),
     ),
-    default='Y+'
+    default='Y'
     )
 
 classes = ( BATEX_PT_Panel, BATEX_OT_Operator, BATEX_OT_OpenFolder )
