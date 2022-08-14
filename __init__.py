@@ -39,9 +39,17 @@ bpy.types.Scene.export_smoothing = EnumProperty(
     default='OFF'
     )
 
+def check_armature(self, context):  # enable armature export if export_animations is enabled
+    if self.export_animations:
+        temp = self.object_types
+        temp.add('ARMATURE')
+        self.object_types = temp
+
 bpy.types.Scene.export_animations = BoolProperty(name="Export Rig & Animations",
                 default=False,
-                description="Export rig and animations")
+                description="Export rig and animations",
+                update=check_armature
+                                                )
 
 bpy.types.Scene.one_material_ID = BoolProperty(name="One material ID",
                 default=True,
