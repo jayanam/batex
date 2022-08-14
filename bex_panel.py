@@ -50,6 +50,9 @@ class BATEX_PT_Panel(Panel):
         col.scale_x = 1.25
         col.prop(context.scene, "axis_forward", text="")
 
+        col = layout.column(align=True)
+        col.prop(context.scene, "object_types")
+
         row = box.row()
         col = row.column(align=True)
         col.label(text="Up")

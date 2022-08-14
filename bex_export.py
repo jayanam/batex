@@ -29,7 +29,7 @@ class BatEx_Export:
     return None
 
   def remove_materials(self, obj):
-    if obj.type == 'ARMATURE':
+    if obj.type != 'MESH':
       return False
 
     mat_count = len(obj.data.materials)
@@ -99,10 +99,18 @@ class BatEx_Export:
       # Remove materials except the last one
       materials_removed = self.remove_materials(obj)
 
-      ex_object_types = { 'MESH' }
+      ex_object_types = self.__context.scene.object_types
 
       if(self.__export_animations):
         ex_object_types.add('ARMATURE')
+
+      # De-select objects with types not selected in object_types and skip export if no objects remain selected so
+      # we won't export empty files
+      for obj_s in self.__context.selected_objects:
+        if obj_s.type not in ex_object_types:
+          obj_s.select_set(state=False)
+      if len(self.__context.selected_objects) == 0:
+        continue
 
       # Export the selected object as fbx
       bpy.ops.export_scene.fbx(check_existing=False,

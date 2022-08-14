@@ -74,6 +74,20 @@ bpy.types.Scene.axis_up = EnumProperty(
     default='Y'
     )
 
+bpy.types.Scene.object_types = EnumProperty(
+    name="Object Types",
+    options={'ENUM_FLAG'},
+    items=(('EMPTY', "Empty", ""),
+           ('CAMERA', "Camera", ""),
+           ('LIGHT', "Lamp", ""),
+           ('ARMATURE', "Armature", "WARNING: not supported in dupli/group instances"),
+           ('MESH', "Mesh", ""),
+           ('OTHER', "Other", "Other geometry types, like curve, metaball, etc. (converted to meshes)"),
+           ),
+    description="Which kind of object to export",
+    default={'MESH'},
+)
+
 classes = ( BATEX_PT_Panel, BATEX_OT_Operator, BATEX_OT_OpenFolder )
 
 register, unregister = bpy.utils.register_classes_factory(classes)
