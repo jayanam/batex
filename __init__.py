@@ -1,11 +1,13 @@
 bl_info = {
     "name" : "Batex",
-    "author" : "jayanam",
+    "author" : "jayanam, fork maintainer: wotava",
     "descrtion" : "Batch export as Fbx",
     "blender" : (2, 80, 0),
-    "version" : (0, 6, 0, 0),
-    "location" : "Batex panel",
+    "version" : (0, 6, 1, 0),
+    "location" : "3D View -> Batex panel",
     "warning" : "",
+    "doc_url": "https://github.com/Wotava/batex/blob/master/README.md",
+    "tracker_url": "https://github.com/Wotava/batex/issues",
     "category" : "Import-Export"
 }
 

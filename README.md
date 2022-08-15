@@ -1,5 +1,11 @@
 # Batex
-Export selected objects as fbx in batch operation.
+Export selected objects as fbx in batch operation. Batex is simple and does exactly what you expect it to do
+without all the unnecessary setup complexity other addons have.
+
+This is a fork of jayanam's [batex addon](https://github.com/jayanam/batex) with some 
+additional features that can be useful for Unreal Engine development. It will be actively maintained and improved, so 
+any feedback is appreciated. Check [dev branch](https://github.com/Wotava/batex/tree/dev) for some unstable 
+features in development (then can be **really** unstable and produce unexpected results, so proceed with caution).
 
 ### Features
 * One fbx file per selected object
@@ -8,6 +14,8 @@ Export selected objects as fbx in batch operation.
 * Define export folder, which is stored to .blend-file
 * Open export folder with one click
 * Export armature and animations
+* Export every object type supported by Blender .fbx exporter (e.g. lights, curves)
+* Define Forward and Up axes
 
 ### Installing
 1. Download zip file: https://github.com/jayanam/batex/archive/master.zip
