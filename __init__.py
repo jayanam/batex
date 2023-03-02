@@ -1,9 +1,9 @@
 bl_info = {
-    "name" : "Batex",
+    "name" : "Batex-mahu",
     "author" : "jayanam",
-    "descrtion" : "Batch export as Fbx",
+    "descrtion" : "Batch export as Fbx (mahu ver)",
     "blender" : (2, 80, 0),
-    "version" : (0, 6, 0, 0),
+    "version" : (999, 7, 0, 0),
     "location" : "Batex panel",
     "warning" : "",
     "category" : "Import-Export"
@@ -46,6 +46,10 @@ bpy.types.Scene.export_animations = BoolProperty(name="Export Rig & Animations",
 bpy.types.Scene.one_material_ID = BoolProperty(name="One material ID",
                 default=True,
                 description="Export just one material per object")
+
+bpy.types.Scene.export_unity_coordinate = BoolProperty(name="Unity coordinate system",
+                default=True,
+                description="Export geometry with Unity compatibility.")
 
 classes = ( BATEX_PT_Panel, BATEX_OT_Operator, BATEX_OT_OpenFolder )
 
