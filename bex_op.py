@@ -15,7 +15,7 @@ class BATEX_OT_Operator(Operator):
         bat_export = BatEx_Export(context)
         bat_export.do_export()
         
-        self.report({'INFO'}, "Exported to " + context.scene.export_folder)
+        self.report({'INFO'}, "(mahu) Exported to " + context.scene.export_folder)
         return {'FINISHED'}
 
 

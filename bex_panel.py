@@ -4,8 +4,8 @@ from bpy.types import Panel
 class BATEX_PT_Panel(Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_label = "Batch Fbx export"
-    bl_category = "Batex"
+    bl_label = "Batch Unity Fbx export"
+    bl_category = "Batex Unity"
     
     def draw(self, context):
         
@@ -23,24 +23,10 @@ class BATEX_PT_Panel(Panel):
         col.operator('object.bex_ot_openfolder', text='', icon='FILE_TICK')
 
         row = layout.row()
-        row.prop(context.scene, "center_transform", text="Center transform")
-
-        row = layout.row()
-        row.prop(context.scene, "apply_transform", text="Apply transform")
-
-        row = layout.row()
-        row.prop(context.scene, "one_material_ID")
-
-        row_smooth = layout.row()
-        col_smooth_lbl = row_smooth.column()
-        col_smooth_lbl.label(text="Smoothing:")
-
-        col_smooth = row_smooth.column()
-        col_smooth.alignment = 'EXPAND'
-        col_smooth.prop(context.scene, "export_smoothing", text="")
-
-        row = layout.row()
-        row.prop(context.scene, "export_animations")
+        layout.row().label(text="Exports only visible objects.")
+        layout.row().label(text="Splits by top level collection.")
+        layout.row().label(text="Applies unity style transform.")
+        layout.row().label(text="Names files <collection>.fbx")
 
         row = layout.row()
         row.operator('object.bex_ot_operator', text='Export')
